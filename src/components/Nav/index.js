@@ -17,14 +17,14 @@ function Nav() {
     return (
         <header>
             <h2>
-                <a href="/">
-                    <span role="img" aria-lable="camera">📸</span> Oh Snap!
+                <a href="/" data-testid="link">
+                    <span role="img" aria-label="camera">📸</span> Oh Snap!
                 </a>
             </h2>
             <nav>
                 <ul className="flex-row">
                     <li className="mx-2">
-                        <a href="#about">
+                        <a data-testid="about" href="#about">
                             About Me
                         </a>
                     </li>
