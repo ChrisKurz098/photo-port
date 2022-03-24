@@ -1,11 +1,7 @@
 import React from 'react';
 
-function Modal({modalData, setModal}) {
+function Modal({modalData, toggleModal}) {
     const {on, name, index, description, category} = modalData; 
-
-    function closeModal(){
-        setModal({...modalData, on: false});
-    }
 
     return (
         <div className="modalBackdrop">
@@ -15,7 +11,7 @@ function Modal({modalData, setModal}) {
                 <p>
                     P{description}
                 </p>
-                <button type="button" onClick={closeModal}>
+                <button type="button" onClick={toggleModal}>
                     Close
                 </button>
             </div>

@@ -109,9 +109,8 @@ function PhotoList({ category }) {
     const {on, name, i, description} = modalData;
     function toggleModal(image, i){
         setModal({...modalData,...image,
-            on: true,
+            on: !on,
             index: i
-           
         })
     }
 
@@ -122,7 +121,7 @@ function PhotoList({ category }) {
             {
              modalData.on &&  <Modal
            modalData={modalData}
-             setModal={setModal}
+           toggleModal={toggleModal}
              />
             }
             <div className='flex-row'>
