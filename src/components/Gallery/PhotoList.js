@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
+import Modal from "../Modal";
 
-// import photo from '../../assets/small/commercial/0.jpg';
 
 
 function PhotoList({ category }) {
@@ -104,14 +104,34 @@ function PhotoList({ category }) {
 
     const currentPhotos = photos.filter((photo) => photo.category === category);
 
+    const [modalData, setModal] = useState({on: false, name: '', image: '',description: '' });
+
+    const {on, name, i, description} = modalData;
+    function toggleModal(image, i){
+        setModal({...modalData,...image,
+            on: true,
+            index: i
+           
+        })
+    }
+
+    console.log(modalData);
+
     return (
         <div>
+            {
+             modalData.on &&  <Modal
+           modalData={modalData}
+             setModal={setModal}
+             />
+            }
             <div className='flex-row'>
                 {currentPhotos.map((image, i) => (
                     <img
                         src={require(`../../assets/small/${category}/${i}.jpg`)}
                         alt={image.name}
                         className="img-thumbnail mx-1"
+                        onClick={() => toggleModal(image, i)}
                         key={image.name}
                     />
                 ))}
